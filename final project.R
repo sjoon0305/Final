@@ -89,7 +89,7 @@ order200_2<-kospi200[order(kospi200$rate2),]
 sum(kospi200$시가총액*kospi200$rate2)/sum(kospi200$시가총액)
 
 
-
+#
 kospi200[kospi200$rate1>0&kospi200$rate2<0,]
 
 
