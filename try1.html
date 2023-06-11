@@ -611,7 +611,7 @@ kospi200[kospi200$rate2&lt;0,]</code></pre>
 # 기여도(시가총액)을 계산하여 구한 kospi의 평균 등락율
 sum(kospi200$시가총액*kospi200$rate2)/sum(kospi200$시가총액)</code></pre>
 <pre><code>## [1] 17.02969</code></pre>
-<pre class="r"><code>#
+<pre class="r"><code># 6개월에 비해선 떨어졌지만 3개월기준으로 오른 주식
 kospi200[kospi200$rate1&gt;0&amp;kospi200$rate2&lt;0,]</code></pre>
 <pre><code>##               종목명 종목코드 상장주식수 현재가 시가총액 rate1  rate2
 ## 4   삼성바이오로직스   207940      71174 801000   570104  3.09  -3.14

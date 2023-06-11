@@ -101,7 +101,7 @@ order200_2<-kospi200[order(kospi200$rate2),]
 sum(kospi200$시가총액*kospi200$rate2)/sum(kospi200$시가총액)
 
 
-#
+# 6개월에 비해선 떨어졌지만 3개월기준으로 오른 주식
 kospi200[kospi200$rate1>0&kospi200$rate2<0,]
 
 
