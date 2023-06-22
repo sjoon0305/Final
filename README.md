@@ -1,11 +1,12 @@
 # Final
 
 ---
-title: "try1"
+title: "final project"
 output: html_document
-date: "2023-06-11"
+date: "2023-06-22"
 ---
 
+## 금융통계 기말과제 증권 분선
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
