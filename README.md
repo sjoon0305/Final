@@ -9,10 +9,7 @@ date: "2023-06-22"
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-```{r}
-x <- c(1, 2, 3)
-mean(x)
-```
+
 ## 주식 정보를 네이버에서 가져오는 코드
 ```
 library(tidyverse)
@@ -85,17 +82,28 @@ get_stock_info <- function(base_url) {
   return(df)
 }
 ```
+## 
 
 ## 금융통계 기말과제 증권 분석
-우선 KRX 정보데이터시스템에서 3,6개월 등락율 데이터를 다운받는다./n
+우선 KRX 정보데이터시스템에서 3,6개월 등락율 데이터를 다운받는다.\n
 다음에 다운받은 데이터를 data.frame으로 변환한다.
 
 ```{r}
 library(readxl)
 library(dplyr) 
+
+
+# 3개월 등락률 데이터 
+data <- read_excel("C:/Users/jbnu/Downloads/data_5621_20230610.xlsx")
+dt<-data.frame(data)
+dt[dt$종목명=="한화에어로스페이스",]
+
+# 6개월 등락률 데이터
+data2<-read_excel("C:/Users/jbnu/Downloads/data_2154_20230610.xlsx")
+dt2<-data.frame(data2) 
 ```
 
-The mean of x is `r mean(x)`. 1
+
 ## R Markdown
 
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
