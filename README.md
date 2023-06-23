@@ -9,6 +9,10 @@ date: "2023-06-22"
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+```{r}
+x <- c(1, 2, 3)
+mean(x)
+```
 ## 주식 정보를 네이버에서 가져오는 코드
 ```
 library(tidyverse)
