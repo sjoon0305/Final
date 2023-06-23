@@ -81,11 +81,16 @@ get_stock_info <- function(base_url) {
   }
   return(df)
 }
+
+# 최근의 코드로 읽음
+kospi<-read.csv("C:/Users/jbnu/Documents/R file/basic/kospi.csv")
+kospi <- kospi %>%
+  select(종목명, 종목코드, 상장주식수, 현재가, 시가총액)
 ```
 ## 
 
 ## 금융통계 기말과제 증권 분석
-우선 KRX 정보데이터시스템에서 3,6개월 등락율 데이터를 다운받는다.\\n
+우선 KRX 정보데이터시스템에서 3,6개월 등락율 데이터를 다운받는다.
 다음에 다운받은 데이터를 data.frame으로 변환한다.
 
 ```{r}
@@ -103,23 +108,55 @@ data2<-read_excel("C:/Users/jbnu/Downloads/data_2154_20230610.xlsx")
 dt2<-data.frame(data2) 
 ```
 
+## 현재 kospi 200 기업들의 3, 6개월 등락률을 읽는 코드
+```
+# 3개월 데이터 가져오기
+kospi$rate1<-NA
+count<-0
+for (i in 1:400){
+  if (any(dt[,1]==kospi[,2][i])==TRUE){
+    kospi[i,]$rate1<-dt[dt[,1]==kospi[,2][i],]$등락률
+    count<-count+1
+  }
+  if (count==200) { # kospi200 기업까지만 조사
+    print(i)
+    break
+  }
+}
 
-## R Markdown
+# 6개월 데이터 가져오기
+kospi$rate2<-NA
+count<-0
+for (i in 1:400){
+  if (any(dt2[,1]==kospi[,2][i])==TRUE){
+    kospi[i,]$rate2<-dt2[dt2[,1]==kospi[,2][i],]$등락률
+    count<-count+1
+  }
+  if (count==200) { # kospi200 기업까지만 조사
+    print(i)
+    break
+  }
+}
+```
+## 최종 코스피 200의 등락율 rate1:3개월 기준, rate2:6개월 기준
+```
+kospi200<-kospi[!is.na(kospi$rate1),]
+```
+등락율 최고,최저 확인하기
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
+# 3개월 등락율 히스토그램
+```
+hist(kospi200$rate1, breaks = seq(min(kospi200$rate1),max(kospi200$rate1)+1,1),
+     xlim = c(min(kospi200$rate1),max(kospi200$rate1)),xaxt = "n")
+axis(side = 1, at = seq(-30, 190, by = 10))
+abline(v=0,col='red',lwd=2)
+```
+# 6개월 등락율 히스토그램
+```
+hist(kospi200$rate2, breaks = seq(min(kospi200$rate2),max(kospi200$rate2)+1,1),
+     xlim = c(min(kospi200$rate2),max(kospi200$rate2)),xaxt = "n")
+axis(side = 1, at = seq(-60,280 , by = 10))
+abline(v=0,col='red',lwd=2)
 ```
 
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
