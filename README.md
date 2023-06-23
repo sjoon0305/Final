@@ -11,6 +11,8 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## 주식 정보를 네이버에서 가져오는 코드
+![3](https://github.com/sjoon0305/Final/assets/126755986/6ee03e2c-35ac-4960-8bd4-026bce8d9818)
+
 ```
 library(tidyverse)
 library(lubridate)
@@ -92,6 +94,7 @@ kospi <- kospi %>%
 ## KRX 정보데이터시스템 등락율
 우선 KRX 정보데이터시스템에서 3,6개월 등락율 데이터를 다운받는다.
 다음에 다운받은 데이터를 data.frame으로 변환한다.
+![2](https://github.com/sjoon0305/Final/assets/126755986/4cd2d84d-590f-4575-8695-9f4ac1c89eef)
 
 ```{r}
 library(readxl)
@@ -148,13 +151,18 @@ kospi200<-kospi[!is.na(kospi$rate1),]
 
 
 # 3개월 등락율 히스토그램
+![4](https://github.com/sjoon0305/Final/assets/126755986/aa12e20e-dabf-4606-a813-11471b2a5cdd)
+
 ```
 hist(kospi200$rate1, breaks = seq(min(kospi200$rate1),max(kospi200$rate1)+1,1),
      xlim = c(min(kospi200$rate1),max(kospi200$rate1)),xaxt = "n")
 axis(side = 1, at = seq(-30, 190, by = 10))
 abline(v=0,col='red',lwd=2)
 ```
+
 # 6개월 등락율 히스토그램
+![5](https://github.com/sjoon0305/Final/assets/126755986/15cd9322-f31d-4b50-b391-48bcbab51612)
+
 ```
 hist(kospi200$rate2, breaks = seq(min(kospi200$rate2),max(kospi200$rate2)+1,1),
      xlim = c(min(kospi200$rate2),max(kospi200$rate2)),xaxt = "n")
