@@ -171,6 +171,7 @@ abline(v=0,col='red',lwd=2)
 ```
 ## 분석
 ![6](https://github.com/sjoon0305/Final/assets/126755986/0a7dd58f-07f8-4300-9450-d469aa941969)
+
 1년 동안 kospi 지수와 함께 kospi200 지수는 최고치를 경신하였다 그래서 6개월 기준으론 떨어졌지만 3개월 기준으로 오른 종목들의 가능성이 있다고 본다.
 아래의 종목들이다.
 ![7](https://github.com/sjoon0305/Final/assets/126755986/8cf5ecad-8a9b-476e-8f81-5c5b3afbf279)
