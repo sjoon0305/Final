@@ -7,12 +7,14 @@ date: "2023-06-22"
 ---
 
 ## 금융통계 기말과제 증권 분석
+우선 KRX 정보데이터시스템에서 3,6개월 등락율 데이터를 다운받는다.
+다음에 다운받은 데이터를 data.frame으로 변환한다.
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 ```{r}
-x <- 1:5
-mean(x)
+library(readxl)
+library(dplyr) 
 ```
 
 The mean of x is `r mean(x)`. 1
